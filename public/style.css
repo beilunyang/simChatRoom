@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html{overflow: hidden;}
-body{background: url('bg.jpeg') 0 0 no-repeat;
+body{background: url('bg.jpg') 0 0 no-repeat;
 	 background-size: cover;
 	 background-attachment: fixed;
 	 font-size: 18px;
@@ -27,8 +27,8 @@ body{background: url('bg.jpeg') 0 0 no-repeat;
 
 @media(max-width:512px){
 	.content{padding:20px 10% 0;}
-	body{background:url('bg-sm.jpeg') 0 0 no-repeat;
-		background-size: cover;
+	body{background:url('bg-sm.jpg') 0 0 no-repeat;
+		background-size:cover;
 		}
 
 }

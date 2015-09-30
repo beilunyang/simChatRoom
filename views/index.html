@@ -11,13 +11,18 @@
 	<div class="mask">
 	<div class="content">
 		<header>
+				{% if form %}
 			<form action="" id="shuru">
-				<input type="text" id="messages" autocomplete="off" placeholder="输入昵称，开始绅士之旅(づ￣3￣)づ╭❤～" />
+        	                <input type="text" id="messages" autocomplete="off" placeholder="信息弹准备，biubiubiu~~~~~" />
 			</form>
+				{% else %}
+			<form action="/login" id="shuru" method="post">
+				<input type="text" name = 'niname' id="nicheng" autocomplete="off" placeholder="输入昵称，开始绅士之旅(づ￣3￣)づ╭❤～" />
+			</form>
+				{% endif %}
 		</header>
 		<div class="room mCustomScrollbar" data-mcs-theme="light-thin">
-			<div><div class="dialog"><div class="name">悖论</div><div class="info">魔法师降临。</div></div><div style="clear: both;"></div></div>
-
+			
 		</div>
 		<footer style='display: none;'>
 			Copyright &copy 2015 <a href="http://bitibiti.com">beilun</a> All Rights Reserved
@@ -27,6 +32,8 @@
 	<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	{% if form %}
+		<script type="text/javascript" src="script.js"></script>
+	{% endif %}
 </body>
 </html>
