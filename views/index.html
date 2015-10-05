@@ -13,11 +13,11 @@
 		<header>
 				{% if form %}
 			<form action="" id="shuru">
-        	                <input type="text" id="messages" autocomplete="off" placeholder="信息弹准备，biubiubiu~~~~~" />
+        	        <input type="text" id="messages" autocomplete="off" placeholder="信息弹准备，biubiubiu~~~~~" required/>
 			</form>
 				{% else %}
 			<form action="/login" id="shuru" method="post">
-				<input type="text" name = 'niname' id="nicheng" autocomplete="off" placeholder="输入昵称，开始绅士之旅(づ￣3￣)づ╭❤～" />
+				<input type="text" name = 'niname' id="nicheng" autocomplete="off" required placeholder="输入昵称(最多6位)，开始绅士之旅(づ￣3￣)づ╭❤～"  pattern=".{1,6}"/>
 			</form>
 				{% endif %}
 		<div id="onlineCount" style="padding-top:10px"></div>

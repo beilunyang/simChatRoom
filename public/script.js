@@ -7,7 +7,7 @@ $('#shuru').submit(function(){
 	$('#mCSB_1_container').append($(apHtml));
 	$('.room').mCustomScrollbar('scrollTo','bottom');
 	$('#messages').val('');
-	return false;//这句一定要加
+	return false;//这句一定要加,阻止事件默认行为。
 });
 socket.on('chat message',function(niname,msg){
 	var apHtml = '<div><div class="dialog" style="float:right;"><div class="name">'+niname+'</div><div class="info">'+msg+'</div></div><div style="clear: both;"></div></div>';
