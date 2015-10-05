@@ -20,11 +20,13 @@
 				<input type="text" name = 'niname' id="nicheng" autocomplete="off" placeholder="输入昵称，开始绅士之旅(づ￣3￣)づ╭❤～" />
 			</form>
 				{% endif %}
+		<div id="onlineCount" style="padding-top:10px"></div>
+		<div style="width:0;height:0;overflow:hidden;" id="hook">{{bigname}}</div>
 		</header>
 		<div class="room mCustomScrollbar" data-mcs-theme="light-thin">
 			
 		</div>
-		<footer style='display: none;'>
+		<footer>
 			Copyright &copy 2015 <a href="http://bitibiti.com">beilun</a> All Rights Reserved
 		</footer>
 	</div>
@@ -34,6 +36,13 @@
 	<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 	{% if form %}
 		<script type="text/javascript" src="script.js"></script>
+	{% else %}
+		<script>
+			var socket = io();
+			socket.on('initCount',function(num){
+				$('#onlineCount').text('当前在线人数:'+num);	
+			});
+		</script>
 	{% endif %}
 </body>
 </html>

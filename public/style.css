@@ -62,6 +62,18 @@ header input:focus{
 .room > div{width:100%;
 }
 
+.login {padding:7px 0;}	
+.login span{background-color:rgba(242,242,242,.5);
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		margin: 0 auto;
+		padding: 5px 15px;
+		text-align: center;
+		width:50%;
+		display:block;
+}
+
 .dialog{background-color:rgba(242,242,242,.5);
 		-webkit-border-radius: 10px;
 		-moz-border-radius: 10px;
@@ -70,12 +82,15 @@ header input:focus{
 		padding: 5px 15px;
 		text-align: left;
 		max-width: 60%;	
+		float: left;
 }
 
 .name{font-size: 14px;}
 
-.room div:nth-child(odd) .dialog{float:left;}
-.room div:nth-child(even) .dialog{float:right;};
+
+/* .room div:nth-child(even) > .dialog{float:left;}
+.room div:nth-child(odd) > .dialog{float:right;};
+ */
 
 
 

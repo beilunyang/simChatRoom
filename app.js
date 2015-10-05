@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 	if(!req.session.info){
 		res.render('index');	
 	}else{
-		res.render('index',{form:'hh'});
+		res.render('index',{form:'hh',bigname:req.session.info.niname});
 	}
 });
 app.post('/login',function(req,res){
@@ -36,16 +36,31 @@ app.post('/login',function(req,res){
 io.use(function(socket,next){
 	sessionMiddleware(socket.request,socket.request.res,next);
 	next(new Error('a error'));
-});
+}); //这个中间件，使socket可以访问到session...
+var onlineCount = 0;
 io.on('connection',function(socket){
 	var session = socket.request.session;
 	try{
 		var niname = session.info.niname;
+		onlineCount++ ;
+		io.emit('login',niname,onlineCount);
+		console.log(niname+'加入聊天室,当前在线人数:'+onlineCount);
 	}catch(e){
-		var niname = '匿名';
+		io.emit('initCount',onlineCount);
+		console.log('初始化当前人数为:'+onlineCount);
 	}
 	socket.on('chat message',function(msg){
-		io.emit('chat message',niname,msg);
+		socket.broadcast.emit('chat message',niname,msg);
+	});
+	socket.on('disconnect',function(){
+		try{
+			var niname = session.info.niname;
+			onlineCount--;
+			console.log(niname+'退出了聊天室,当前在线人数:'+onlineCount);
+			io.emit('logout',niname,onlineCount);
+		}catch(e){
+			console.log('一个ip退出了当前网页,当前在线人数:'+onlineCount);
+		}
 	});	
 });
 app.use(function(error,req,res,next){
