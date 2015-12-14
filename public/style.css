@@ -11,26 +11,19 @@ body{background: url('bg.jpg') 0 0 no-repeat;
 	 font-size: 18px;
 	 font-family: '微软雅黑',Aria;
 	 color: #fff;
+	overflow:hidden;
 }
 .mask{position: absolute;
 	  left: 0;
 	  top: 0;
-	  width: 100%;
-	  height: 100%;
-	  background-color: rgba(0,0,0,.2);
+	 right:0;
+	bottom:0;  
+	background-color: rgba(0,0,0,.2);
 }
 .content{width:90%;
 		margin:0 auto;
 		text-align: center;
 		padding: 20px 20% 0;
-}
-
-@media(max-width:512px){
-	.content{padding:20px 10% 0;}
-	body{background:url('bg-sm.jpg') 0 0 no-repeat;
-		background-size:cover;
-		}
-
 }
 
 header input{outline: none;
@@ -62,6 +55,20 @@ header input:focus{
 .room > div{width:100%;
 }
 
+@media(max-width:512px){
+	.content{padding:20px 0 0;}
+	body{background:url('bg-sm.jpg') 70% 20% no-repeat;
+		}
+	.room{height:350px;
+		margin-bottom:0;
+		}
+	
+
+}
+
+@media(min-width:512px) and (max-width:800px){
+	.content{padding:20px 10% 0;}
+}
 .login {padding:7px 0;}	
 .login span{background-color:rgba(242,242,242,.5);
 		-webkit-border-radius: 10px;
@@ -83,6 +90,7 @@ header input:focus{
 		text-align: left;
 		max-width: 60%;	
 		float: left;
+		word-wrap:break-word;
 }
 
 .name{font-size: 14px;}
@@ -90,7 +98,7 @@ header input:focus{
 footer{position: absolute;bottom: 5px;
 		left: 0;right: 0;
 		text-align: center;
-		font-size: 16px;
+		font-size: 12px;
 		
 }
 footer a{
