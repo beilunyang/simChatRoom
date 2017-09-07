@@ -1,7 +1,7 @@
 var express = require('express');
 var swig = require('swig');
 var app = express();
-var server = app.listen(3000,function(){
+var server = app.listen(process.env.PORT || 3000,function(){
 	console.log('服务器已经启动。。。');
 });
 var io =require('socket.io')(server);
